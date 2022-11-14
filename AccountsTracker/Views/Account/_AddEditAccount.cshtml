@@ -1,0 +1,13 @@
+﻿@model AddEditAccountViewModel
+
+<form asp-action="SaveAccount" method="post">
+    <div class="form-group row pt-2">
+        <label asp-for="AccountName" class="col-sm-2 col-form-label">Enter the name of the account:</label>
+        <div class="col-sm-4">
+            <input asp-for="Id" type="hidden" />
+            <input asp-for="AccountName" class="form-control" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Save</button>
+    <button type="button" id="closeAddEditAccountPartial" class="btn btn-secondary mt-3">Close</button>
+</form>

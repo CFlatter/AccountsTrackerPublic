@@ -1,0 +1,55 @@
+﻿@model AccountViewModel
+
+<div class="d-flex justify-content-center">
+    <table class="table" style="width: auto">
+        <thead>
+            <tr>
+                <th scope="col">Account</th>
+            </tr>            
+        </thead>
+        <tbody>
+            @foreach(var account in Model.Accounts)
+            {
+                <tr>
+                    <td>@account.AccountName</td>
+                    <td class=""><button data-accountlogid="@account.Id" class="showAddEditAccountLogPartialBtn btn btn-primary" type="button">Add Account Log</button></td>
+                    <td>@Html.ActionLink("View History","AccountLogHistory","Account",new{accountId = account.Id}, new { @class = "btn btn-primary"})</td>
+                    <td><button class="showAddEditAccountPartialBtn btn btn-primary" data-id="@account.Id"><i class="fa-solid fa-pen-to-square"></i></button></td>
+                    <td>
+                        <form method="post">
+                            <button asp-controller="Account" asp-action="DeleteAccount" asp-route-id="@account.Id" type="submit" class="btn btn-close"></button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <button class="showAddEditAccountPartialBtn btn btn-secondary">Add new Account</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div id="addEditAccountPartial">
+
+</div>
+
+<div id="addAccountLogPartial" class="modal fade">
+    <div class="modal-dialog">
+        <div  class="modal-content">
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+<canvas id="accountChart" height="200" width="600"></canvas>
+
+@section Scripts{
+
+    <script src="~/js/accounts.js"></script>
+}

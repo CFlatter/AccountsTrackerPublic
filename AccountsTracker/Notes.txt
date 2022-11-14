@@ -1,0 +1,19 @@
+﻿26/09/22 - Created SQL DB with tables & refactored code into multiple class libraries. Next step is to build repository classes in the AccountsTracker.Data library
+			and the interfaces for which in the AccountsTracker.Shared library.
+27/09/22 - Created repositories and relevant interfaces. Added interfaces into Program.cs as transients. Created stored procedures in DB
+			for each of the repository methods. Next step is to populate repository methods (using Dapper)
+28/09/22 - Created xUnit project (AccountsTracker.Tests). Implemented repository methods with Dapper. Fixed IoC appsettings builder along with
+			correcting the SavingPercentages model. Started writing unit tests. Next step is to continue to write unit tests.
+29/09/22 - Fixed dependency injection for Income model for the payables field. Refactored classes. Finished current unit tests. 
+			Next step write integration tests for the database and the appsettings file.
+03/10/22 - Started writing integration tests. Next step finish integration tests
+04/10/22 - Finished current applicable unit & integration tests.
+05/10/22 - Added validation to some models & unit tests to test exceptions thrown.
+10/10/22 - Finished view, models and controllers for the Person page.
+11/10/22 - Finished view, models and controller for Personal Outgoings page.
+12/10/22 - Added controllers, view and models for the Account and AccountLog functionality.
+14/10/22 - Finished account chart (finally!), finished main home page calculator. v1.0 is completed.
+			Next steps - Allow editing of person from home page (modal for partial view) for quick changes, allow deletion of 
+				account logs in the accountloghistory view. Change over to SQLLite using EFCore to be able to host on Azure for free
+17/10/22 - Added deletion of AccountLogs screen and ability to select a date when saving an account log. Changed how the colours are
+			generated on the accounts chart.

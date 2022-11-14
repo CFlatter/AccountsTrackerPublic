@@ -1,0 +1,29 @@
+﻿@model AccountLogViewModel
+
+<div class="modal-header">
+    <h3 class="modal-title">Add an account log</h3>
+    <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+    <form asp-action="SaveAccountLog" method="post">
+        <div class="form-group">
+            <div class="row pt-2">
+                <label class="col-sm-6 col-form-label">Enter account balance</label>
+                <div class="col-sm-4">
+                    <input asp-for="AccountBalance" class="form-control" />
+                    <input asp-for="Id" type="hidden" />
+                    <input asp-for="AccountId" type="hidden" />
+                </div>
+            </div>
+            <div class="row pt-2">
+                <label class="col-sm-6 col-form-label">Enter the date</label>
+                <div class="col-sm-4">
+                    <input asp-for="LogDate" class="form-control date" type="date" />
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3" data-bs-dismiss="modal">Save</button>
+
+    </form>
+</div>

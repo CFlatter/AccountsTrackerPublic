@@ -1,0 +1,68 @@
+﻿@model HomePageViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Monthly Wage Calculator</h2>
+</div>
+
+<div>
+    <table class="table table-striped">
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col span="4" style="background: lightcoral" />
+            <col span="4" style="background: lightgreen" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th rowspan="2" scope="col">Person</th>
+                <th rowspan="2" scope="col">Gross Income</th>
+                <th rowspan="2" scope="col">Net Income</th>
+                <th rowspan="2" scope="col">Pension Contribution</th>
+                <th rowspan="2" scope="col">Income after pension</th>
+                <th colspan="4" scope="colgroup" class="col text-center">Outgoings</th>
+                <th colspan="4" scope="colgroup"class="col text-center">Transfers</th>
+                
+            </tr>
+            <tr>
+                <th scope="col">Household Bills</th>
+                <th scope="col">Individual Gift Pot</th>
+                <th scope="col">Joint Gift Pot</th>
+                <th scope="col">Disposable Income</th>
+
+                <th scope="col">Transfer to Savings</th>
+                <th scope="col">Transfer to Shares</th>
+                <th scope="col">Transfer to House Fund</th>
+                <th scope="col">Transfer to Holiday Fund</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var account in Model.PersonalAccounts)
+            {
+                <tr>
+                    <td>@account.Person.Name</td>
+                    <td>@account.Person.GrossIncome</td>
+                    <td>@account.Person.NetIncome</td>
+                    <td>@account.PensionContributionAmount.ToString("0.00")</td>
+                    <td>@account.IncomeAfterPensionDeduction.ToString("0.00")</td>
+                    <td>@account.AmountToPayHouseholdBills.ToString("0.00")</td>
+                    <td>@account.PersonalTransfers.IndividualGiftPot.ToString("0.00")</td>
+                    <td>@account.PersonalTransfers.JointGiftPot.ToString("0.00")</td>
+                    <td>@account.PersonalTransfers.DisposableIncome.ToString("0.00")</td>
+                    <td>@account.SavingAmounts.SavingsAmount.ToString("0.00")</td>
+                    <td>@account.SavingAmounts.SharesAmount.ToString("0.00")</td>
+                    <td>@account.SavingAmounts.HouseFundAmount.ToString("0.00")</td>
+                    <td>@account.SavingAmounts.HolidayFundAmount.ToString("0.00")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+

@@ -1,0 +1,40 @@
+﻿@model PersonViewModel
+@{
+    ViewData["Title"] = "People";
+}
+
+<div class="d-flex justify-content-center">
+    <table class="table" style="width: auto">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Gross Income</th>
+                <th scope="col">Net Income</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in Model.People)
+            {
+                <tr>
+                    <td>@person.Name</td>
+                    <td>@person.GrossIncome</td>
+                    <td>@person.NetIncome</td>
+                    <td><button class="showEditPersonForm btn btn-primary" data-id="@person.Id"><i class="fa-solid fa-pen-to-square"></i></button></td>
+                    <td>@Html.ActionLink("View Outgoings","Index","PersonalOutgoings", new {personId = person.Id}, new {@class = "btn btn-primary"})</td>
+                  
+                    
+                </tr>
+            }
+            <tr>
+
+                <td><button class="showEditPersonForm btn btn-secondary">Add a new person</button>  </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="addEditPersonForm">
+
+</div>
+
+
